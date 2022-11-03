@@ -9,6 +9,7 @@ import { Country } from '../interfaces/pais.interface';
 export class PaisService {
 
   private apiUrl: string = "https://restcountries.com/v3.1";
+  private apiUrlv2: string = "https://restcountries.com/v2";
 
   constructor( private http: HttpClient ) { }
 
@@ -31,6 +32,13 @@ export class PaisService {
     const url = `${ this.apiUrl }/alpha/${ id }`;
     
     return this.http.get<Country>(url);
+  }
+
+  getRegion( region: string ): Observable<Country[]> {
+    
+    const url = `${ this.apiUrlv2 }/regionalbloc/${ region }?fields&=name,capital,population`;
+    
+    return this.http.get<Country[]>(url);
   }
 
 }

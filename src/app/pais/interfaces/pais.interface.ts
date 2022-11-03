@@ -2,6 +2,7 @@ export interface Country {
     name:         Name;
     tld:          string[];
     cca2:         string;
+    alpha2Code:   string;        //Código válido para la v2 de la api (usado en porRegionComponent)
     ccn3:         string;
     cca3:         string;
     cioc?:        string;
